@@ -1,27 +1,53 @@
-# DemoFrontendV2
+# Prerequisites
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+Install node.js (make sure to use the LTS version)
 
-## Development server
+Retrieve the project on Github https://github.com/huesogu/demo-frontend-v2
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Install dependencies with the command `npm install`
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Start the application
 
-## Build
+npm run start (it may take some times to build)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Application endpoint url: 
+	http://localhost:4200
 
-## Running unit tests
+Api url:
+	http://localhost:3000/todos
+	http://localhost:3000/users
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Exercice
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Extend the project `demo-frontend-v2` to implement an application able to manage (create , edit and delete) a list of todos
+Use the diagrams join to source code
 
-## Further help
+## Rules
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Two filters must be implemented (name of the user and completed todo)
+- By default, no filter are selected and all rows of the table are displayed (no pagination needed)
+
+- The table should be filtered by the name of the user and also by completed todos (Yes/No)
+
+- Display a table with the following columns:
+	- name of the user
+	- title of todo
+	- status of completed (Yes or No)
+	- action buttons (edit and delete) 
+
+- Below the table, implement a form to create/edit a todo item with save button (use Reactive Form) 
+	- Name of the user (Mandatory)
+	- Tiltle of the todo (max length 500 chararcters and mandatory)
+	- Completed (mandatory)
+
+Note: 
+	- Bootstrap is already installed and can be used but not mandatory....
+	- Use of Reactive Form is mandatory
+
+
+## Result
+
+Send your source code (src folder) to the project manager.
+
