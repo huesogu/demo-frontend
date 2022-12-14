@@ -23,7 +23,7 @@ Api url:
 	http://localhost:3000/users
 
 
-## Exercice
+## Exercise
 
 Extend the project `demo-frontend-v2` to implement an application able to manage (create , edit and delete) a list of todo items
 
@@ -51,5 +51,5 @@ Note:
 
 ## Result
 
-Send your source code (src folder).
+Send your source code (src folder) and/or commit your work in the repository.
 
