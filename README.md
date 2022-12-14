@@ -4,7 +4,7 @@ Install node.js (make sure to use the LTS version)
 
 npm `9.2.0` and node `v18.12.1`
 
-See: `https://nodejs.org/en/`
+See: https://nodejs.org/en/
 
 Retrieve the project on Github https://github.com/huesogu/demo-frontend-v2
 
