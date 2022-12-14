@@ -21,33 +21,31 @@ Api url:
 
 ## Exercice
 
-Extend the project `demo-frontend-v2` to implement an application able to manage (create , edit and delete) a list of todos
-Use the diagrams join to source code
+Extend the project `demo-frontend-v2` to implement an application able to manage (create , edit and delete) a list of todo items
 
 ## Rules
 
 - Two filters must be implemented (name of the user and completed todo)
-- By default, no filter are selected and all rows of the table are displayed (no pagination needed)
-
-- The table should be filtered by the name of the user and also by completed todos (Yes/No)
+- By default, no filter are selected and all rows of the table are displayed.
+- It should be possibe to filter the table by the name of the user and also by completed todos (Yes/No).
 
 - Display a table with the following columns:
 	- name of the user
-	- title of todo
+	- title of the todo item
 	- status of completed (Yes or No)
 	- action buttons (edit and delete) 
 
-- Below the table, implement a form to create/edit a todo item with save button (use Reactive Form) 
-	- Name of the user (Mandatory)
-	- Tiltle of the todo (max length 500 chararcters and mandatory)
-	- Completed (mandatory)
+- Below the table, implement a form to create/edit a todo item with save button (use Reactive Form)  with following fields:
+	- Name of the user (mandatory field)
+	- Tiltle of the todo (max length 500 chararcters and mandatory field)
+	- Completed (mandatory field)
 
 Note: 
-	- Bootstrap is already installed and can be used but not mandatory....
+	- Bootstrap is already installed and can be used but not mandatory.
 	- Use of Reactive Form is mandatory
 
 
 ## Result
 
-Send your source code (src folder) to the project manager.
+Send your source code (src folder).
 
