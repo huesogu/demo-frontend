@@ -34,7 +34,7 @@ Extend the project `demo-frontend-v2` to implement an application able to manage
 - It should be possibe to filter the table by the name of the user and also by completed todos (Yes/No).
 
 - Display a table with the following columns:
-	- name of the user
+	- name of the user (create a custom pipe to display the lastname in uppercase)
 	- title of the todo item
 	- status of completed (Yes or No)
 	- action buttons (edit and delete) 
