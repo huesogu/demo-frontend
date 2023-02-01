@@ -51,5 +51,5 @@ Note:
 
 ## Result
 
-Commit your work and create a pull request.
+Commit your work and create a pull request. 
 
