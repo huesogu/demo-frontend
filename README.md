@@ -6,7 +6,7 @@ npm `9.2.0` and node `v18.12.1`
 
 See: https://nodejs.org/en/
 
-Retrieve the project on Github https://github.com/huesogu/demo-frontend-v2
+Retrieve the project on Github https://github.com/huesogu/demo-frontend and switch to branch demo-frontend-v3
 
 Install dependencies with the command `npm install`
 
@@ -51,5 +51,5 @@ Note:
 
 ## Result
 
-Commit your work and create a pull request. 
+Commit your work on the branch demo-frontend-v3 regularly and create a pull request. 
 
