@@ -41,7 +41,7 @@ Extend the project `demo-frontend-v2` to implement an application able to manage
 
 - Below the table, implement a form to create/edit a todo item with save button (use Reactive Form)  with following fields:
 	- Name of the user (mandatory field)
-	- Tiltle of the todo (max length 500 chararcters and mandatory field)
+	- Tiltle of the todo (max length 300 chararcters and mandatory field)
 	- Completed (mandatory field)
 
 Note: 
@@ -51,5 +51,5 @@ Note:
 
 ## Result
 
-Send your source code (src folder) and/or commit your work in the repository.
+Commit your work in the repository.
 
