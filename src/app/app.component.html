@@ -83,3 +83,43 @@
           </table>
     </div>
 
+    <div class="container">
+      <form [formGroup]="todoItem" (ngSubmit)="onSubmit()">
+
+        <label for="username">Name of the user: </label>
+          <select class="form-control"
+            id="username"
+            formControlName="userName"
+            required
+          >
+            <option *ngFor="let user of users" [value]="user.name">{{user.name}}</option>
+          </select>
+
+        <label for="title">Title of the task : </label>
+        <input type="text" id="title" name="title" class="form-control"
+              required minlength="4" formControlName="title">
+
+        <div *ngIf="title.invalid && (title.dirty || title.touched)"
+            class="alert">
+
+          <div *ngIf="title.errors?.['required']">
+            title is required.
+          </div>
+          <div *ngIf="title.errors?.['minlength']">
+            title must be at least 4 characters long.
+          </div>
+        </div>
+
+        <select class="form-control"
+          id="completed"
+          formControlName="completed"
+          required
+        >
+          <option [value]="true">true</option>
+          <option [value]="false">false</option>
+        </select>
+
+        <button type="submit" [disabled]="!todoItem.valid">Submit</button>
+      </form>
+    </div>
+

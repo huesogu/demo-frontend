@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,8 @@ import { TableFilterPipe } from './table-filter.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-	  NgbModule
+	  NgbModule,
+    Validators
   ],
   providers: [],
   bootstrap: [AppComponent]

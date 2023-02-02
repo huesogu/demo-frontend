@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import userAndTodoData from '../../db.json';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 interface User {
@@ -60,10 +61,22 @@ export class AppComponent {
 
  name: string = '';
 
-  onRemove(id, type) {
-    let type = type === 'users' ? users : todos
-    type = type.filter((element) => element.id === id)
+  onRemove(id: String, type: String) {
+    let model = type === 'users' ? users : todos
+    model = model.filter((element) => element.id === id)
 
+  }
+
+
+  todoItem = new FormGroup({
+    userName: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required),
+    completed: new FormControl('', Validators.required)
+  });
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.todoItem.value);
   }
 }
 
