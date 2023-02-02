@@ -45,6 +45,7 @@ interface Todo {
     completed: Boolean;
 }
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -54,5 +55,7 @@ export class AppComponent {
   title = 'demo-frontend-v2';
  users: User[] = userAndTodoData.users;
  todos: Todo[] = userAndTodoData.todos;
+
+ name: string = '';
 }
 
