@@ -20,11 +20,10 @@
     <div class="form-group">
       <strong>Item</strong>
       <select class="form-control"
-              name="country"
-              [(ngModel)]="country">
-        <option></option>
-        <option *ngFor="let country of countries"
-                [value]="country">{{ country }}</option>
+              name="name"
+              [(ngModel)]="name">
+        <option *ngFor="let term of completed"
+                [value]="term">{{ term }}</option>
       </select>
     </div>
 
@@ -47,8 +46,8 @@
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
             <td>
-              <button type="button" class="btn btn-primary">Primary</button>
-              <button type="button" class="btn btn-secondary">Secondary</button>
+              <button (click)="onEdit(user.id, 'users')" type="button" class="btn btn-secondary">Edit</button>
+              <button (click)="onRemove(user.id, 'users')" type="button" class="btn btn-danger">Remove</button>
 
             </td>
           </tr>
@@ -62,18 +61,25 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">title</th>
+                <th scope="col">userId</th>
+                <th scope="col">completed</th>
+                <th scope="col">action</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users">
-                <th scope="row">{{user.id}}</th>
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.phone }}</td>
+              <tr *ngFor="let todo of todos">
+                <th scope="row">{{todo.id}}</th>
+                <td>{{ todo.title }}</td>
+                <td>{{ todo.userId }}</td>
+                <td>{{ todo.completed }}</td>
+                <td>
+                  <button (click)="onEdit(todo.id, 'items')" type="button" class="btn btn-secondary">Edit</button>
+                  <button (click)="onRemove(todo.id, 'items')" type="button" class="btn btn-danger">Remove</button>
+
+                </td>
               </tr>
             </tbody>
           </table>
     </div>
+

@@ -56,6 +56,14 @@ export class AppComponent {
  users: User[] = userAndTodoData.users;
  todos: Todo[] = userAndTodoData.todos;
 
+ completed: string[] = ['Yes', 'No'];
+
  name: string = '';
+
+  onRemove(id, type) {
+    let type = type === 'users' ? users : todos
+    type = type.filter((element) => element.id === id)
+
+  }
 }
 
