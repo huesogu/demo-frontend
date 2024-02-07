@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TableDemoComponent } from './table-demo/table-demo.component';
-
+import { GetusersService } from './getusers.service';
 @Component({
-  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [TableDemoComponent], 
   styleUrls: ['./app.component.scss']
 })
 
@@ -19,7 +17,7 @@ export class AppComponent implements OnInit {
     confirmPassword: new FormControl(''),    
     acceptTerms: new FormControl(false),  });  
     submitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private service:GetusersService) {}
   ngOnInit(): void {    
     this.form = this.formBuilder.group(      
       {        
@@ -31,6 +29,11 @@ export class AppComponent implements OnInit {
         acceptTerms: [false, Validators.requiredTrue]
       }
     );
+
+    this.service.getPosts()
+        .subscribe(response => {
+          this.users = response;
+        });
   }
 
   
@@ -49,4 +52,7 @@ export class AppComponent implements OnInit {
     this.submitted = false;    
     this.form.reset();
   }
+
+  users:any;
+  
 }

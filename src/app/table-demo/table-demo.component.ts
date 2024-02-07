@@ -1,79 +1,30 @@
 import { Component, ViewChild } from '@angular/core';
+import { GetusersService } from '../getusers.service';
+
 
 @Component({
-  standalone: true,
   selector: 'app-table-demo',
   templateUrl: './table-demo.component.html',
   styleUrls: ['./table-demo.component.css'],
 })
 export class TableDemoComponent {
-  studentListArray: any = [
-    {
-      name: 'Pushpendra',
-      email: 'pushpendra@xyz.com',
-      class: 'Btech',
-      age: 22,
-      language: 'Hindi',
-    },
-    {
-      name: 'Sagar',
-      email: 'sagar@xyz.com',
-      class: 'MBA',
-      age: 24,
-      language: 'Hindi',
-    },
-    {
-      name: 'John',
-      email: 'john@xyz.com',
-      class: 'Btech',
-      age: 23,
-      language: 'English',
-    },
-    {
-      name: 'Golu',
-      email: 'golu@xyz.com',
-      class: 'BCA',
-      age: 21,
-      language: 'Hindi',
-    },
-    {
-      name: 'Vaishnavi',
-      email: 'vaishnavi@xyz.com',
-      class: 'BCA',
-      age: 20,
-      language: 'Hindi',
-    },
-    {
-      name: 'Jasmine',
-      email: 'jasmine@xyz.com',
-      class: 'MBA',
-      age: 23,
-      language: 'English',
-    },
-    {
-      name: 'Sonia',
-      email: 'sonia@xyz.com',
-      class: 'Bcom',
-      age: 19,
-      language: 'Hindi',
-    },
-    {
-      name: 'Rahul',
-      email: 'rahul@xyz.com',
-      class: 'Btech',
-      age: 21,
-      language: 'English',
-    },
-  ];
-  tempStudentListArray = [...this.studentListArray];
+  users: any = ;
+  tempUsers = [...this.users];
   @ViewChild('nameVar') nameVar: any = '';
   @ViewChild('classVar') classVar: any = '';
   @ViewChild('ageVar') ageVar: any = '';
   @ViewChild('emailVar') emailVar: any = '';
   @ViewChild('languageVar') languageVar: any = '';
+    
+  userTemplate: any;
+
+  constructor(private usersService: GetusersService) {}
 
   searchFilter() {
-    this.tempStudentListArray = [];
+   this.userTemplate = this.usersService.getPosts().subscribe(response => {
+        this.users = response;
+      });
+    this.tempUsers = [];
     let filterObject: any = {
       name: this.nameVar.nativeElement.value,
       class: this.classVar.nativeElement.value,
@@ -81,17 +32,17 @@ export class TableDemoComponent {
       email: this.emailVar.nativeElement.value,
       language: this.languageVar.nativeElement.value,
     };
-    for (let i = 0; i < this.studentListArray.length; i++) {
+    for (let i = 0; i < this.userTemplate.length; i++) {
       let isStringExist;
       for (let key in filterObject) {
         if (key == 'age') {
           isStringExist =
-            this.studentListArray[i][key]
+            this.userTemplate[i][key]
               .toString()
               .indexOf(filterObject[key]) > -1;
         } else {
           isStringExist =
-            this.studentListArray[i][key]
+            this.userTemplate[i][key]
               .toUpperCase()
               .indexOf(filterObject[key].toUpperCase()) > -1;
         }
@@ -100,7 +51,7 @@ export class TableDemoComponent {
         }
       }
       if (isStringExist) {
-        this.tempStudentListArray.push(this.studentListArray[i]);
+        this.tempUsers.push(this.users[i]);
       }
     }
   }
