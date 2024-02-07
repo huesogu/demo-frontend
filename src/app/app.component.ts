@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import userAndTodoData from '../../db.json';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 interface User {
@@ -60,13 +60,14 @@ export class AppComponent {
  completed: string[] = ['Yes', 'No'];
 
  name: string = '';
+ /*
 
   onRemove(id: String, type: String) {
-    let model = type === 'users' ? users : todos
+    let model = type === 'users' ? this.users : this.todos
     model = model.filter((element) => element.id === id)
 
   }
-
+*/
 
   todoItem = new FormGroup({
     userName: new FormControl('', Validators.required),

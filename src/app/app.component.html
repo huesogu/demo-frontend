@@ -74,8 +74,8 @@
                 <td>{{ todo.userId }}</td>
                 <td>{{ todo.completed }}</td>
                 <td>
-                  <button (click)="onEdit(todo.id, 'items')" type="button" class="btn btn-secondary">Edit</button>
-                  <button (click)="onRemove(todo.id, 'items')" type="button" class="btn btn-danger">Remove</button>
+                  <button  type="button" class="btn btn-secondary">Edit</button> <!-- (click)="onEdit(todo.id, 'items')" -->
+                  <button  type="button" class="btn btn-danger">Remove</button> <!-- (click)="onRemove(todo.id, 'items')" -->
 
                 </td>
               </tr>
@@ -84,7 +84,7 @@
     </div>
 
     <div class="container">
-      <form [formGroup]="todoItem" (ngSubmit)="onSubmit()">
+      <form [formGroup]="todoItem" (ngSubmit)="onSubmit()"> 
 
         <label for="username">Name of the user: </label>
           <select class="form-control"
