@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+
 import userAndTodoData from '../../db.json';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 interface User {
@@ -53,6 +55,29 @@ interface Todo {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  form: FormGroup = new FormGroup({    
+    title: new FormControl(''),    
+    users: new FormControl(''),    
+    todos: new FormControl(''),    
+    completed: new FormControl(''),    
+    name: new FormControl(''),
+});
+
+constructor(private formBuilder: FormBuilder) {
+  
+}
+get f(): { 
+  [key: string]: AbstractControl 
+} {    
+  return this.form.controls;  
+}
+
+onEdit(arg0: any,arg1: string) {
+  throw new Error('Method not implemented.');
+}
+onRemove(arg0: any,arg1: string) {
+  throw new Error('Method not implemented.');
+}
   title = 'demo-frontend-v2';
  users: User[] = userAndTodoData.users;
  todos: Todo[] = userAndTodoData.todos;
@@ -79,5 +104,7 @@ export class AppComponent {
     // TODO: Use EventEmitter with form value
     console.warn(this.todoItem.value);
   }
+
+  
 }
 

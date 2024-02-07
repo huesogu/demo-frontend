@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,18 +10,15 @@ import { TableFilterPipe } from './table-filter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
     UppercasePipe,
     TableFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-	  NgbModule,
-    Validators
+    ReactiveFormsModule,
+	  NgbModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule { }

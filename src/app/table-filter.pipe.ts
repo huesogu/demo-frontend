@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TableFilterPipe implements PipeTransform {
 
-  transform(list: any[], filters: Object) {
+  transform(list: any[], filters: any) {
     const keys       = Object.keys(filters).filter(key => filters[key]);
-    const filterUser = user => keys.every(key => user[key] === filters[key]);
+    const filterUser = (user: any) => keys.every(key => user[key] === filters[key]);
 
     return keys.length ? list.filter(filterUser) : list;
   }
