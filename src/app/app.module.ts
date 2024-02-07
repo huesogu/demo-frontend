@@ -1,3 +1,21 @@
+import {
+	NgModule
+} from '@angular/core';
+import {
+	BrowserModule
+} from '@angular/platform-browser';
+import {
+	ReactiveFormsModule
+} from '@angular/forms';
+import {
+	AppComponent
+} from './app.component';
+@NgModule({
+	declarations: [],
+	imports: [BrowserModule, ReactiveFormsModule],
+	providers: []
+}) export class AppModule {}
+/*
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,3 +36,4 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+*/
