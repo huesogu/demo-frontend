@@ -54,6 +54,35 @@
       </table>
     </form>
   -->
+  <div class="register-form">  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">    
+      <div class="form-group">      
+        <label>title</label>      
+        <input type="text"        
+          formControlName="users"        
+          class="form-control"        
+         /> 
+        <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">             
+            <label>users</label>      
+                
+          </div>
+      <div class="form-group">      
+        <label>todos</label>      
+          
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
     </div>
     <div class="container">
       <h2> Todo </h2>
