@@ -1,4 +1,8 @@
-<div class="register-form">
+
+
+  <app-table-demo [usersArray]="users"></app-table-demo>
+
+  <div class="register-form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Full Name</label>
@@ -52,5 +56,3 @@
       </div>
     </form>
   </div>
-
-  <app-table-demo></app-table-demo>

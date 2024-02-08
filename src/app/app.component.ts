@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TableDemoComponent } from './table-demo/table-demo.component';
 import { GetusersService } from './getusers.service';
+import { GettodosService } from './getTodos.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,31 +10,49 @@ import { GetusersService } from './getusers.service';
 })
 
 export class AppComponent implements OnInit {
+
+  users: any | undefined;
+  todos: any | undefined;
+
   form: FormGroup = new FormGroup({    
-    fullname: new FormControl(''),    
-    username: new FormControl(''),    
-    email: new FormControl(''),    
-    password: new FormControl(''),    
-    confirmPassword: new FormControl(''),    
-    acceptTerms: new FormControl(false),  });  
+    name: new FormControl(''),    
+    title: new FormControl(''),    
+    Completed: new FormControl('') });  
     submitted = false;
-  constructor(private formBuilder: FormBuilder, private service:GetusersService) {}
+  constructor(private formBuilder: FormBuilder, private getUsersService:GetusersService, private gettodosService:GettodosService) {}
   ngOnInit(): void {    
     this.form = this.formBuilder.group(      
       {        
-        fullname: ['', Validators.required],        
-        username: ['',[Validators.required,
-        Validators.minLength(6),Validators.maxLength(20)]],email: ['', [Validators.required, Validators.email]],
-        password: ['',[Validators.required,Validators.minLength(6),Validators.maxLength(40)]],        
-        confirmPassword: ['', Validators.required],        
-        acceptTerms: [false, Validators.requiredTrue]
+        name: ['', Validators.required],        
+        title: ['', Validators.required],
+        Completed: [false, Validators.requiredTrue]
       }
     );
 
-    this.service.getPosts()
+
+    this.getUsersService.getUsers()
         .subscribe(response => {
           this.users = response;
+          console.log("this.users: " + JSON.stringify(this.users));
         });
+    this.gettodosService.getTodos()
+        .subscribe(res => {
+          this.todos = res;
+          console.log("this.todos: " +  JSON.stringify(this.todos) );
+        })    
+
+        let results: any;
+        this.users.forEach((user: any) => {
+          const rowTb = this.todos.find((todos: any) => todos.userId  === user.id);
+          if (rowTb) {
+            results.push({
+              ...user,
+              ...rowTb
+            });
+          }
+        });
+        
+        console.log("results: " + JSON.stringify(results));
   }
 
   
@@ -53,6 +72,6 @@ export class AppComponent implements OnInit {
     this.form.reset();
   }
 
-  users:any;
   
+
 }
