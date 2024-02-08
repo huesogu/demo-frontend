@@ -1,0 +1,46 @@
+
+<div id="main">
+    <div id="table-wrapper">
+        users: {{ users | json}}
+        <p>
+            Today's item: {{usersArray}}
+          </p>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <div class="col-header">
+                <span>User Name</span>
+                <input #nameVar placeholder="search name" (keyup)="searchFilter()" type="text" name="" id="" />
+              </div>
+            </th>
+            <th>
+                <div class="col-header">
+                    <span>Todo Title</span>
+                    <input #nameVar placeholder="search name" (keyup)="searchFilter()" type="text" name="" id="" />
+                </div>
+            </th>
+            <th>
+                <div class="col-header">
+                    <span>Todo Status</span>
+                    <input #nameVar placeholder="search name" (keyup)="searchFilter()" type="text" name="" id="" />
+                </div>
+            </th>
+            <th>
+                <div class="col-header">
+                    <span>Action</span>
+                </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td>{{ user.userId }}</td>
+            <td>{{ user.userId }}</td>
+            <td>{{ user.userId }}</td>
+            <td>{{ user.userId }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
